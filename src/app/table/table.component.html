@@ -1,0 +1,29 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>WO ID </th>
+      <th> Description </th>
+      <th> Received date </th>
+      <th> Assigned to </th>
+      <th> Status </th>
+      <th> Priority </th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let d of data">
+    <tr>
+      <td>{{ d.work_order_id }}</td>
+      <td>{{ d.description }}</td>
+      <td>{{ d.received_date }}</td>
+      <td>
+        <p *ngFor="let a of d.assigned_to">{{ a.person_name }} - {{ a.status }} </p>
+      </td>
+      <td>{{ d.status }}</td>
+      <td>{{ d.priority }}</td>
+    </tr>
+  </tbody>
+  <tbody *ngIf="!data || data.length == 0">
+    <tr>
+      <td colspan="6" class="text-center">No data found</td>
+    </tr>
+  </tbody>
+</table>
