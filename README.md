@@ -4,8 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Installation
 
-1. Clone this repository `git clone `
-2. `cd `
+1. Clone this repository `git clone https://github.com/phormula/angular-api-mockup.git`
+2. `cd angular-api-mockup`
 3. Run `npm install` [<b>Note:</b> Make sure you have `nodejs (^12.14.1 || ^14.15.0)` installed]
 
 ## Development server
