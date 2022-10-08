@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { DataService } from 'src/services/data.service';
-import { WorkResponseData } from 'src/types/work.type';
+import { Component, OnInit } from '@angular/core';
+import { TableComponent } from '../table/table.component';
 
 @Component({
   selector: 'app-search',
@@ -8,17 +7,16 @@ import { WorkResponseData } from 'src/types/work.type';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
-  @Input('data') data: WorkResponseData[] | undefined;
-
-  constructor(private dataService: DataService) {}
+  constructor(private dataTab: TableComponent) {}
 
   handleSearch(event: Event): void {
     const searchString = (event.target as HTMLInputElement).value;
 
-    if (this.dataService.data) {
-      this.dataService.data = this.dataService.cachedData;
-      this.dataService.data = this.dataService.data?.filter((e) =>
-        e.description.toLowerCase().includes(searchString.toLowerCase())
+    if (this.dataTab) {
+      this.dataTab.data = this.dataTab.cachedData;
+      this.dataTab.data = this.dataTab.data?.filter(
+        (e: { description: string }) =>
+          e.description.toLowerCase().includes(searchString.toLowerCase())
       );
     }
   }
